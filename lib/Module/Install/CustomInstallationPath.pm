@@ -2,13 +2,14 @@ package Module::Install::CustomInstallationPath;
 
 use strict;
 use File::HomeDir;
+use Config;
 
 use vars qw( @ISA $VERSION );
 
 use Module::Install::Base;
 @ISA = qw( Module::Install::Base );
 
-$VERSION = '0.10.2';
+$VERSION = sprintf "%d.%02d%02d", q/0.10.30/ =~ /(\d+)/g;
 
 # ---------------------------------------------------------------------------
 
@@ -23,10 +24,10 @@ sub Check_Custom_Installation
   return if (grep {/^PREFIX=/} @ARGV) || (grep {/^INSTALLDIRS=/} @ARGV);
 
   my $install_location = $self->prompt(
-    "Choose your installation type:\n[1] normal Perl locations\n" .
-    "[2] custom locations\n=>" => '1');
+    "Would you like to install this package into a location other than the\n" .
+    "default Perl location (i.e. change the PREFIX)?" => 'n');
 
-  if ($install_location eq '2')
+  if ($install_location eq 'y')
   {
     my $home = home();
 
@@ -71,6 +72,13 @@ is then used to add PREFIX=value to @ARGV.
 If the user specifies PREFIX or INSTALLDIRS as arguments to Makefile.PL, then
 the prompts are skipped and a normal installation is done.
 
+
+=head1 COMPATIBILITY NOTE
+
+Consider carefully whether you want to use this module. In my experience, many
+people don't want an interactive installation. For example, CPAN users have
+likely already thought about custom installation paths. Debian package
+maintainers also want non-interactive installs.
 
 =head1 METHODS
 
