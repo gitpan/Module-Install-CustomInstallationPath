@@ -8,13 +8,17 @@ use vars qw( @ISA $VERSION );
 use Module::Install::Base;
 @ISA = qw( Module::Install::Base );
 
-$VERSION = '0.10.1';
+$VERSION = '0.10.2';
 
 # ---------------------------------------------------------------------------
 
 sub Check_Custom_Installation
 {
   my $self = shift;
+
+  # Module::Install says it requires perl 5.004
+  $self->requires( perl => '5.004' );
+  $self->include_deps('File::HomeDir',0);
 
   return if (grep {/^PREFIX=/} @ARGV) || (grep {/^INSTALLDIRS=/} @ARGV);
 

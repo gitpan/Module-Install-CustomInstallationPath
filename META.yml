@@ -1,11 +1,11 @@
 name: Module-Install-CustomInstallationPath
-version: 0.10.1
+version: 0.10.2
 abstract: A Module::Install extension that
 author: David Coppit <david@coppit.org>
 license: gpl
 distribution_type: module
 requires:
-  File::HomeDir: Module::Install
+  File::HomeDir: 0
 no_index:
   directory:
     - inc

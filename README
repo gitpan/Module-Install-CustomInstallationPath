@@ -6,8 +6,9 @@ custom installation directories
 
 NEW IN THIS VERSION
 
-Version 0.10.1:
-- Added missing Module::Install dependency
+Version 0.10.2: Thu Sep 16 2004
+- Fixed broken dependency specification in Makefile.PL
+- Fixed auto-import of dependencies for this extension
 
 
 MODULE DEPENDENCIES
