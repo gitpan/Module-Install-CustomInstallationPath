@@ -6,7 +6,8 @@ custom installation directories
 
 NEW IN THIS VERSION
 
-- This is the initial release
+Version 0.10.1:
+- Added missing Module::Install dependency
 
 
 MODULE DEPENDENCIES
@@ -14,6 +15,7 @@ MODULE DEPENDENCIES
 To use this module, you will need to install:
 
 - File::HomeDir
+- Module::Install
 
 You should be prompted to install this module automatically when you run "perl
 Makefile.PL".
@@ -42,6 +44,35 @@ example:
   use ext::Module::Install;
   ...
   Check_Custom_Installation();
+
+
+INSTALLATION PROBLEMS
+
+If "make test" fails, run
+
+  make test TEST_VERBOSE=1
+
+and see which test(s) are failing. Please email the results to the address
+below, or submit a bug report on the project website as described in the
+section REPORTING BUGS below.
+
+For other bugs, see the section REPORTING BUGS below.
+
+
+DOCUMENTATION
+
+Just "perldoc Module::Install::CustomInstallationPath". After installation on
+Unix systems, you can also do "man Module::Install::CustomInstallationPath".
+
+
+HOMEPAGE
+
+Visit http://coppit.org/code/ for the latest version.
+
+
+REPORTING BUGS
+
+Send email to David Coppit <david@coppit.org>.
 
 
 COPYRIGHT

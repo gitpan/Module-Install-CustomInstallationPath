@@ -9,7 +9,10 @@ abstract_from   ('lib/Module/Install/CustomInstallationPath.pm');
 version_from    ('lib/Module/Install/CustomInstallationPath.pm');
 license         ('gpl');
 
-requires        ('File::HomeDir');
+requires        (
+                  'File::HomeDir',
+                  'Module::Install',
+                );
 
 include         ('ExtUtils/AutoInstall.pm');
 auto_install    ( -default => 0 );
